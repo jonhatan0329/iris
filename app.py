@@ -11,11 +11,7 @@ flower_names = {0: "Iris-setosa", 1: "Iris-versicolor", 2: "Iris-virginica"}
 st.title("Iris Prediction app")
 
 # reading all the pickle files
-model_scaler = pickle.load(open('scaler_iris.pkl','rb')) # 1st pickle scale model
 model_lr_basic = pickle.load(open('model_lr_basic_iris.pkl','rb')) # 2nd pickle basic model
-model_lr_smote= pickle.load(open('model_lr_smote_iris.pkl','rb')) # 3rd pickle smote model
-model_smote_tuning= pickle.load(open('model_tuning_smote_iris.pkl','rb')) # 4th pickle smote tuning model
-model_rfc= pickle.load(open('model_rfc_smote_iris.pkl','rb')) # 5th pickle rfc model
 
 # user need to define the input
 st.header("Enter the input values by User")
@@ -37,27 +33,16 @@ user_input_df=pd.DataFrame(user_input,index=[0])
 
 
 # scale the user_data
-user_input_df_scaled=model_scaler.transform(user_input_df)
+#user_input_df_scaled=model_scaler.transform(user_input_df)
 
 #st.write("Basic Model is simple logistic regression model using default parameters")
 
 # user will select the model
-selected_model=st.selectbox("Select one of the following models",("Basic Model","Smote Model","Smote Tuning Model","Random Forest Model"))
+#selected_model=st.selectbox("Select one of the following models",("Basic Model","Smote Model","Smote Tuning Model","Random Forest Model"))
 if st.button("Predict"):
 
-    if selected_model=="Basic Model":
-        prediction=model_lr_basic.predict(user_input_df_scaled)
-        st.write("Basic Model is simple logistic regression model using default parameters")
-
-    elif selected_model=="Smote Model":
-        prediction=model_lr_smote.predict(user_input_df_scaled)
-        
-    elif selected_model=="Smote Tuning Model":
-        prediction=model_smote_tuning.predict(user_input_df_scaled)
-        
-    elif selected_model=="Random Forest Model":
-        prediction=model_rfc.predict(user_input_df_scaled)
-        
+    prediction=model_lr_basic.predict(user_input_df_scaled)
+    st.write("Basic Model is simple logistic regression model using default parameters")
 
     result=prediction[0]
 
