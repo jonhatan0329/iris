@@ -4,7 +4,7 @@ import numpy as np
 import pickle
 
 
-st.set_page_config(layout="wide")
+#st.set_page_config(layout="wide")
 
 st.title("Iris Prediction app")
 
@@ -57,7 +57,14 @@ if st.button("Predict"):
         prediction=model_rfc.predict(user_input_df_scaled)
         
 
-    result=prediction[0]
+    # Dictionary to map numerical predictions to flower names
+flower_names = {0: "Iris-setosa", 1: "Iris-versicolor", 2: "Iris-virginica"}
 
+# Get the predicted result (numerical)
+result = prediction[0]
 
-    st.write(f'The predicted car price is {result}')
+# Convert number to flower name
+flower_name = flower_names[result]
+
+# Display the flower name
+st.write(f'The predicted flower is: {flower_name}')
