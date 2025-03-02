@@ -22,9 +22,9 @@ st.header("Enter the input values by User")
 
 Sepal_L=st.slider(" Enter the float value for sepal length (cm)", 4.3,7.9)
 #Sepal_L=st.number_input(" Enter the float value for sepal length (cm)")
-Sepal_W=st.number_input(" Enter the float value for sepal width (cm)")
-Petal_L=st.number_input(" Enter the float value for petal length (cm)")
-Petal_W=st.number_input(" Enter the float value for petal width (cm)")
+Sepal_W=st.slider(" Enter the float value for sepal width (cm)", 2.0,4.4)
+Petal_L=st.slider(" Enter the float value for petal length (cm)", 1.0,6.9)
+Petal_W=st.slider(" Enter the float value for petal width (cm)", 0.1,2.5)
 
 # create a dictionary for user_input
 user_input={'sepal length (cm)': Sepal_L, 
