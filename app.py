@@ -18,11 +18,11 @@ model_rfc= pickle.load(open('model_rfc_smote_iris.pkl','rb')) # 5th pickle rfc m
 # user need to define the input
 st.header("Enter the input values by User")
 
-#Glucose=st.slider(" Enter the float value for Glucose", 35,205)
-Sepal_L=st.number_input(" Enter the float value for BloodPressure")
-Sepal_W=st.number_input(" Enter the float value for SkinThickness")
-Petal_L=st.number_input(" Enter the float value for Insulin")
-Petal_W=st.number_input(" Enter the float value for BMI")
+Sepal_L=st.slider(" Enter the float value for sepal length (cm)", 4.3,7.9)
+#Sepal_L=st.number_input(" Enter the float value for sepal length (cm)")
+Sepal_W=st.number_input(" Enter the float value for sepal width (cm)")
+Petal_L=st.number_input(" Enter the float value for petal length (cm)")
+Petal_W=st.number_input(" Enter the float value for petal width (cm)")
 
 # create a dictionary for user_input
 user_input={'sepal length (cm)': Sepal_L, 
@@ -59,8 +59,5 @@ if st.button("Predict"):
 
     result=prediction[0]
 
-    if result==0:
-        st.success("The person is not diabetic")
-
-    else:
-        st.success("The person is diabetic")
+    if st.button('Predict'):
+    st.write(f'The predicted car price is {result}')
