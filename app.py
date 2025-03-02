@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import pickle
 
+# Dictionary mapping numerical labels to flower names
+flower_names = {0: "Iris-setosa", 1: "Iris-versicolor", 2: "Iris-virginica"}
 
 #st.set_page_config(layout="wide")
 
@@ -57,14 +59,13 @@ if st.button("Predict"):
         prediction=model_rfc.predict(user_input_df_scaled)
         
 
-    # Dictionary to map numerical predictions to flower names
-flower_names = {0: "Iris-setosa", 1: "Iris-versicolor", 2: "Iris-virginica"}
-
-# Get the predicted result (numerical)
-result = prediction[0]
-
-# Convert number to flower name
-flower_name = flower_names[result]
-
-# Display the flower name
-st.write(f'The predicted flower is: {flower_name}')
+# Ensure the model makes a prediction before accessing index [0]
+    if model:
+        prediction = model.predict(input_data)  # Get predicted class (0, 1, or 2)
+        
+        if len(prediction) > 0:  # Ensure prediction is not empty
+            result = prediction[0]  # Get the first prediction
+            flower_name = flower_names.get(result, "Unknown")  # Map number to name
+            st.success(f"The predicted flower is: **{flower_name}** 🌸")
+        else:
+            st.error("Prediction failed. No result obtained.")
