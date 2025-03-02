@@ -33,7 +33,7 @@ user_input_df=pd.DataFrame(user_input,index=[0])
 
 
 # scale the user_data
-user_input_df_scaled=model_scaler.transform(user_input_df)
+#user_input_df_scaled=model_scaler.transform(user_input_df)
 
 #st.write("Basic Model is simple logistic regression model using default parameters")
 
@@ -41,7 +41,7 @@ user_input_df_scaled=model_scaler.transform(user_input_df)
 #selected_model=st.selectbox("Select one of the following models",("Basic Model","Smote Model","Smote Tuning Model","Random Forest Model"))
 if st.button("Predict"):
 
-    prediction=model_lr_basic.predict(user_input_df_scaled)
+    prediction=model_lr_basic.predict(user_input_df)
     st.write("Basic Model is simple logistic regression model using default parameters")
 
     result=prediction[0]
