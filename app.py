@@ -59,10 +59,7 @@ if st.button("Predict"):
         prediction=model_rfc.predict(user_input_df_scaled)
         
 
-# Ensure the model makes a prediction before accessing index [0]
-    if model:
-        prediction = model.predict(input_data)  # Get predicted class (0, 1, or 2)
-        
+# Ensure the model makes a prediction before accessing index [0]        
         if len(prediction) > 0:  # Ensure prediction is not empty
             result = prediction[0]  # Get the first prediction
             flower_name = flower_names.get(result, "Unknown")  # Map number to name
