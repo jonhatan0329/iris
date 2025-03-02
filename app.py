@@ -60,9 +60,9 @@ if st.button("Predict"):
         
 
 # Ensure the model makes a prediction before accessing index [0]        
-        if len(prediction) > 0:  # Ensure prediction is not empty
-            result = prediction[0]  # Get the first prediction
-            flower_name = flower_names.get(result, "Unknown")  # Map number to name
-            st.success(f"The predicted flower is: **{flower_name}** 🌸")
-        else:
-            st.error("Prediction failed. No result obtained.")
+if len(prediction) > 0:  # Ensure prediction is not empty
+    result = prediction[0]  # Get the first prediction
+    flower_name = flower_names.get(result, "Unknown")  # Map number to name
+    st.success(f"The predicted flower is: **{flower_name}** 🌸")
+    else:
+        st.error("Prediction failed. No result obtained.")
