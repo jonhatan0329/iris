@@ -59,5 +59,5 @@ if st.button("Predict"):
 
     result=prediction[0]
 
-    if st.button('Predict'):
+
     st.write(f'The predicted car price is {result}')
