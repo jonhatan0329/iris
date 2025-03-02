@@ -39,7 +39,7 @@ user_input_df=pd.DataFrame(user_input,index=[0])
 # scale the user_data
 user_input_df_scaled=model_scaler.transform(user_input_df)
 
-st.write("Basic Model is simple logistic regression model using default parameters")
+#st.write("Basic Model is simple logistic regression model using default parameters")
 
 # user will select the model
 selected_model=st.selectbox("Select one of the following models",("Basic Model","Smote Model","Smote Tuning Model","Random Forest Model"))
